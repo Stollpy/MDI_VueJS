@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top">
       <div class="container-fluid">
         <router-link to="/" class="navbar-brand"><img alt="Vue logo" src="./assets/logo.png" class="w-25"></router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="logo">
@@ -19,7 +19,7 @@
                 Mes informations
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><span class="dropdown-item" href="#"><router-link to="/account">Mon Compte</router-link></span></li>
+                <li><span class="dropdown-item" href="#"><router-link to="/account">Mon compte</router-link></span></li>
                 <li><a class="dropdown-item" href="#">Dossier locataire</a></li>
               </ul>
             </li>
@@ -60,7 +60,11 @@ router-link {
 }
 
 #nav {
-  padding: 30px;
+  margin-bottom: 10%;
+
+}
+.navbar{
+  background-color: #FFFFFF !important;
 }
 
 #nav a {
@@ -79,5 +83,22 @@ router-link {
 #logo {
   position: absolute;
   left: 80%
+}
+
+
+/* MEDIUM */
+@media screen and (max-width: 991px){
+  #nav {
+  margin-bottom: 20%;
+
+  }
+
+/* LARGE */
+@media screen and (max-width: 767px){
+    #nav {
+  margin-bottom: 30%;
+
+  }
+}
 }
 </style>

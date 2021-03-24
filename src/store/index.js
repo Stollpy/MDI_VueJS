@@ -3,11 +3,11 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     api: 'https://localhost:8000',
-    iri: localStorage.getItem('iri'),
+    iri: sessionStorage.getItem('iri'),
   },
   getters:{
     returnIri(state){
-      return state.iri = localStorage.getItem('iri');
+      return state.iri = sessionStorage.getItem('iri');
     }
   },
   mutations: {

@@ -4,16 +4,16 @@
             <div class="container">
                 <div class="alert alert-danger" role="alert" v-if="error">
                     {{ error }}
-                    <button type="button" class="btn-close" v-on:click="this.error = null" aria-label="Close"></button>
+                    <button type="button" class="btn-close" v-on:click="error = null" aria-label="Close"></button>
                 </div>
                  <div class="alert alert-success" role="alert" v-if="success">
                     {{ success }}
-                    <button type="button" class="btn-close" v-on:click="this.success = null" aria-label="Close"></button>
+                    <button type="button" class="btn-close" v-on:click="success = null" aria-label="Close"></button>
                 </div>
                 <div class="row">
-                    <div class="col-12 shadow">
-                        <div class="row align-item-center justify-content-center">
-                            <div class="col-12 col-lg-5 mb-5 mt-5 shadow-sm mx-3">
+                    <div class="col-12">
+                        <div class="row align-item-center justify-content-center mt-5 mb-5 bg-white shadow rounded">
+                            <div class="col-12 col-lg-5 my-5 mx-3 shadow rounded">
                                 <div class="row">
                                     <div class="col-12">
                                         <h2 class="fw-bold mt-3">Connexion</h2>
@@ -31,7 +31,7 @@
                                                 <label for="loginPassword" class="form-label">Votre mot de passe</label>
                                                 <input type="password" class="form-control" id="loginPassword" v-model="password" required>
                                             </div>
-                                            <btn type="submit" v-on:click="login" class="btn btn-outline-primary">
+                                            <btn type="submit" v-on:click="login" class="btn btn-outline-primary mb-3">
                                                 <span v-if="loading == false">Connexion</span>
                                                 <div class="spinner-border text-primary" v-if="loading == true" role="status">
                                                     <span class="visually-hidden">Loading...</span>
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <!-- Create account -->
-                            <div class="col-12 col-lg-5 mb-5 mt-5 shadow-sm mx-3">
+                            <div class="col-12 col-lg-5 my-5 mx-3 rounded shadow">
                                   <div class="row">
                                     <div class="col-12">
                                         <h2 class="fw-bold mt-3">Créer un compte</h2>
@@ -78,15 +78,19 @@
                 </div>
             </div>
         </div>
+        <Footer class="shadow"/>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name:'Login',
-    
+    components:{
+        Footer
+    },
     data(){
         return {
             email: '',
@@ -111,10 +115,8 @@ export default {
             .then(response => {
                 this.email = '';
                 this.password = '';
-                console.log(response.data.location);
-                localStorage.setItem('iri', response.data.location)
-                this.$store.commit('setIri', localStorage.getItem('iri'))
-                console.log(this.$store.state.iri)
+                sessionStorage.setItem('iri', response.data.location)
+                this.$store.commit('setIri', sessionStorage.getItem('iri'))
                 this.success = 'Vous êtes désormais connectez !';
             })
             .catch(error => {
@@ -127,6 +129,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.container-fluid{
+    background: linear-gradient(#FF914D, #FFC300)
+}
 </style>
