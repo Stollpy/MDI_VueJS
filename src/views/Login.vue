@@ -98,28 +98,32 @@ export default {
             error: '',
             loading: false,
             success: '',
+            api: this.$store.state.api
         }
     },
 
     methods: {
         login: function(e){  
             e.preventDefault;
-            this.loading = true;
-            console.log(this.email);
-            console.log(this.password);  
+            this.loading = true; 
             axios
-            .post('https://localhost:8000/api/login', {
+            .post(this.api + '/api/login', {
                 email: this.email,
                 password: this.password
             })
             .then(response => {
                 this.email = '';
                 this.password = '';
-                sessionStorage.setItem('iri', response.data.location)
-                this.$store.commit('setIri', sessionStorage.getItem('iri'))
+                sessionStorage.setItem('iri_user', response.data.location_user);
+                this.$store.commit('setIriUser', sessionStorage.getItem('iri_user'));
+                sessionStorage.setItem('iri_individual', response.data.location_individual);
+                this.$store.commit('setIriIndividual', sessionStorage.getItem('iri_individual'));
+                console.log(this.$store.state.iri_user)
+                console.log(this.$store.state.iri_individual)
                 this.success = 'Vous êtes désormais connectez !';
             })
             .catch(error => {
+                console.log(error)
                 this.error = 'Invidalid credentials'
             }).finally(() => {
                 this.loading = false;

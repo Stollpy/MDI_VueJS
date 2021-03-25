@@ -67,13 +67,14 @@ export default {
     return {
         loading: false,
         announcement: null,
-        id: this.$route.params.id
+        id: this.$route.params.id,
+        api: this.$store.state.api
     }
   },
   mounted(){
       this.loading = true;
     axios
-    .get(`https://localhost:8000/api/ads/${this.id}`)
+    .get(`${this.api}/api/ads/${this.id}`)
     .then((response) => {
         this.loading = false;
         this.announcement = response.data

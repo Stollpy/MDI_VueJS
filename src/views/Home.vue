@@ -27,7 +27,7 @@
                 <div class="card-body">
                   <h5 class="card-title fw-bold mb-3">Un dossier plus simple</h5>
                   <p class="card-text">
-                    Un dossier plus simple car dossier incomplet rime souvent avec appartement refusé, nous vous guidons à chaque étape pour 
+                    Un dossier incomplet rime souvent avec appartement refusé, nous vous guidons à chaque étape pour 
                     construire un dossier de location parfait et conforme à la legislation.
                   </p>
                 </div>

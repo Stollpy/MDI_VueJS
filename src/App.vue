@@ -20,7 +20,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><span class="dropdown-item" href="#"><router-link to="/account">Mon compte</router-link></span></li>
-                <li><a class="dropdown-item" href="#">Dossier locataire</a></li>
+                <div class="dropdown-item" aria-current="page" href="#"><router-link to="/dossier-locataire">Dossier locataire</router-link></div>
               </ul>
             </li>
             <li class="nav-item">
@@ -43,7 +43,7 @@ export default {
 
   methods:{
     auth: function(){
-      return this.$store.state.iri;
+      return this.$store.state.iri_user;
     }
   }
 }

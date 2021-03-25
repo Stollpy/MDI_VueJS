@@ -62,7 +62,7 @@ export default {
     },
     data(){
         return{
-            iri: this.$store.state.iri,
+            iri: this.$store.state.iri_user,
             api: this.$store.state.api,
             email:  null,
             modified: '',
@@ -75,7 +75,6 @@ export default {
         axios
         .get(this.api + this.iri)
         .then((response) => {
-            console.log(response.data);
             console.log(response.data.email)
             this.email = response.data.email
         })

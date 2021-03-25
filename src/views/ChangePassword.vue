@@ -73,7 +73,7 @@ export default {
     },
     data(){
         return{
-            iri: this.$store.state.iri,
+            iri: this.$store.state.iri_user,
             api: this.$store.state.api,
             modified: '',
             error: '',

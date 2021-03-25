@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Account from '../views/Account.vue'
 import ChangePassword from '../views/ChangePassword.vue'
 import AdsAll from '../views/AdsAll.vue'
+import TenantDirectory from '../views/TenantDirectory.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/account/change-password',
     name: 'ChangePassword',
     component: ChangePassword
+  },
+  {
+    path: '/dossier-locataire',
+    name: 'TenantDirectory',
+    component: TenantDirectory
   },
   {
     path: '/404',
