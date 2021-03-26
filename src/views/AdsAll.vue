@@ -6,8 +6,9 @@
           <div class="spinner-border" role="status" v-if="loading">
             <span class="visually-hidden">Loading...</span>
           </div>
+          <h1 class="mt-3 fw-bold">Aucune annonce trouvé 😭</h1>
         </div>
-        <CardAds :announcements="announcements" />
+        <CardAds :announcements="announcements" v-if="annoucemments !== null"/>
       </div>
     </div>
   </div>
@@ -27,7 +28,8 @@ export default {
   data(){
     return {
       announcements: null,
-      loading: false
+      loading: false,
+      notAds: null,
     }
   },
 
@@ -37,7 +39,12 @@ export default {
     .get('https://localhost:8000/api/ads')
     .then((response) => {
       this.loading = false;
-      this.announcements = response.data['hydra:member']
+      if(response.data['hydra:member'] == null){
+        
+      }
+      else{
+        this.announcements = response.data['hydra:member']
+      }
       console.log(response.data['hydra:member'])
     })
   },

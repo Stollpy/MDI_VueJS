@@ -20,6 +20,9 @@
                         </button>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 my-3">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +31,7 @@
 
 <script>
 import axios from 'axios';
-import { computed } from 'vue';
+
 export default {
     name:'FormIdentity',
     props: {
