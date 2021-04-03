@@ -113,6 +113,7 @@ export default {
 
             }else{
                 console.log('CMP incorrect !')
+                this.loading = false;
                 this.error = 'Le champ "Confirmation de mot de passe" doit être identique au champ "Nouveau mot de passe"';
             }
 
