@@ -104,7 +104,6 @@ export default {
                     this.modified = 'Votre mot de passe à bien été modifié !';
                 })
                 .catch((error) => {
-                    console.log(error)
                     this.error = 'Une erreur c\'est produite !';
                 })
                 .finally(() => {
@@ -112,8 +111,10 @@ export default {
                 })
 
             }else{
-                console.log('CMP incorrect !')
                 this.loading = false;
+                this.passwordNew = '';
+                this.passwordComfirmation = '';
+                this.passwordFormer = '';
                 this.error = 'Le champ "Confirmation de mot de passe" doit être identique au champ "Nouveau mot de passe"';
             }
 
